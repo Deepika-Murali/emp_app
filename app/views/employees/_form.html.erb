@@ -3,24 +3,24 @@
     <div id="error_explanation">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
         <ul>
+          
+          <% employee.errors.full_messages.each do |message| %>
+              
+                 <li>
+                   <%= message %>
+                 </li>
+              
+          <% end %>
+          
           <% if employee.errors[:Age].any? %>
             <li>
-                Age should be between 21 and 60
+                Age should be between 20 and 61
             </li>
           <% end %>
           <% if employee.errors[:Sex].any? %>
             <li>
                Sex should be either male, female or transgender
             </li>
-          <% end %>
-          <% employee.errors.full_messages.each do |message| %>
-              <% if employee.errors[:Age].any? or employee.errors[:Sex].any? %>
-          
-              <% else %>
-                 <li>
-                   <%= message %>
-                 </li>
-              <% end %>
           <% end %>
          
         </ul>
