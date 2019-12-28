@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HelloApp</title>
+    <title>
+      EmployeeApp
+    </title> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_link_tag "employees" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div id="header">
+          <h2><center><%= "Employee Details" %></center></h2>
+          <h4><left><li><%= link_to "Add New Employee",   new_employee_path %></li></left></h4>            
+        </div>
+      </div>
+    </header>
+    
+    <div class="content">
+      <%= yield %>
+    </div> 
+    
   </body>
 </html>
